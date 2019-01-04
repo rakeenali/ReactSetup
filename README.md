@@ -1,8 +1,8 @@
 # ReactSetup
 React minimal setup
 
-## To use just type
+## To install all the dependencies
+npm install
 
-npm init 
-then 
+## To start the app
 npm start
