@@ -14,11 +14,23 @@ module.exports = {
       {
         test: /\.css$/,
         use: [MiniCssExtractPluin.loader, "css-loader"]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[path][name].[ext]"
+            }
+          }
+        ]
       }
     ]
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    mainFields: ["browser", "main", "module"],
+    extensions: [".js", ".json", ".jsx"]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -34,6 +46,7 @@ module.exports = {
   devServer: {
     port: 3000,
     contentBase: "./dist",
-    hot: true
+    hot: true,
+    historyApiFallback: true
   }
 };
